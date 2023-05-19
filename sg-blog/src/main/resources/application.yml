@@ -1,0 +1,55 @@
+server:
+  port: 7777
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://8.130.53.36:3306/sg_blog?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: yuechu666
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+  redis:
+    #数据库索引
+    database: 0
+    host: 8.130.53.36
+    port: 6379
+    password: yuechu666
+    jedis:
+      pool:
+        #最大连接数
+        max-active: 8
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1
+        #最大空闲
+        max-idle: 8
+        #最小空闲
+        min-idle: 0
+        #连接超时时间
+    timeout: 10000
+mybatis-plus:
+  configuration:
+    # 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true # 下划线转驼峰
+    #    mapper-locations: classpath*:/mapper/**/*.xml
+    global-config:
+    db-config:
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
+
+
+
+
+
+oss:
+  accessKey: 7qx2gys0-eteAdBW2Y7R2VDFNRVvN-oK6xXCApf3
+  secretKey: wOVg5-ORGvlppc_vnUJFV9q8QPty4vr63447tsrY
+  bucket: blog-yuechu
+  url: http://rty1o2x0f.hn-bkt.clouddn.com/
+
